@@ -15,11 +15,11 @@ node {
       step([$class: 'DependencyCheckPublisher', unstableTotalAll: '0'])
     }
 //    stage('SCM') {
-//    git url 'https://github.com/edubarrachina/juice-shop/tree/master/routes/angular.js'
+//    git 'https://github.com/edubarrachina/juice-shop/.git'
 //    }
     stage('SonarQube analysis') {
         // requires SonarQube Scanner 2.8+
-        def scannerHome = tool 'SonarQube Scanner 2.8';
+        def scannerHome = tool 'sonarqubeScanner';
         withSonarQubeEnv('SonarqubeServer') {
           sh "${scannerHome}/bin/sonar-scanner"
         }
