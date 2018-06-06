@@ -14,7 +14,7 @@ node {
       step([$class: 'DependencyCheckPublisher', unstableTotalAll: '0'])
     }
     stage('SCM') {
-    git ' https://github.com/edubarrachina/juice-shop/tree/master/routes'
+    git ' https://github.com/edubarrachina/juice-shop/routes'
     }
     stage('SonarQube analysis') {
         // requires SonarQube Scanner 2.8+
