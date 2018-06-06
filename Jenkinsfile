@@ -13,10 +13,13 @@ node {
       archiveArtifacts allowEmptyArchive: true, artifacts: '**/dependency-check-report.*', onlyIfSuccessful: true
       step([$class: 'DependencyCheckPublisher', unstableTotalAll: '0'])
     }
+    stage('SCM') {
+    git ' https://github.com/edubarrachina/juice-shop/tree/master/routes'
+    }
     stage('SonarQube analysis') {
         // requires SonarQube Scanner 2.8+
         def scannerHome = tool 'SonarQube Scanner 2.8';
-        withSonarQubeEnv('My SonarQube Server') {
+        withSonarQubeEnv('SonarqubeServer') {
           sh "${scannerHome}/bin/sonar-scanner"
         }
       }
