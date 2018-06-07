@@ -21,7 +21,7 @@ node {
         // requires SonarQube Scanner 2.8+
         def scannerHome = tool 'sonarqubeScanner';
         withSonarQubeEnv('sonarqubeServer') {
-          sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=EduDISEC -Dsonar.sources=./routes -Dsonar.host.url=http://10.48.253.181:9000 -Dsonar.login=aaf0263cb71d6255e248d3e42e382bc42da6c8a5"
+          sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=EduDISEC -Dsonar.sources=./app -Dsonar.host.url=http://10.48.253.181:9000 -Dsonar.login=aaf0263cb71d6255e248d3e42e382bc42da6c8a5"
         }
       }
 }
